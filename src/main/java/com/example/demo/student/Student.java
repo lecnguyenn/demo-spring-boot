@@ -1,6 +1,9 @@
-package com.example.demo;
+package com.example.demo.student;
 
 
+import com.example.demo.school.School;
+import com.example.demo.studentProfile.StudentProfile;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -25,13 +28,34 @@ public class Student {
     )
     private StudentProfile studentProfile;
 
+    @ManyToOne
+    @JoinColumn(name = "schoolId")
+    @JsonBackReference
+    private School school;
+
     public Student() {
     }
 
-    public Student(String studentName, int studentAge, String email) {
+    public Student(String studentName, int studentAge, String email, StudentProfile studentProfile, School school) {
         this.studentName = studentName;
         this.studentAge = studentAge;
         this.email = email;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public void setStudentProfile(StudentProfile studentProfile) {
+        this.studentProfile = studentProfile;
     }
 
     public Integer getStudentId() {
