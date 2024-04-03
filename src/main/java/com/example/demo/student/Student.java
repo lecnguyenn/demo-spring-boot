@@ -36,11 +36,12 @@ public class Student {
     public Student() {
     }
 
-    public Student(String studentName, int studentAge, String email, StudentProfile studentProfile, School school) {
+    public Student(String studentName, int studentAge, String email) {
         this.studentName = studentName;
         this.studentAge = studentAge;
         this.email = email;
     }
+
 
     public School getSchool() {
         return school;
