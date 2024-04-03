@@ -64,6 +64,7 @@ public class StudentController {
             var errMessage = error.getDefaultMessage();
             errors.put(fieldName, errMessage);
         });
+        System.out.println("error" + errors);
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 }
